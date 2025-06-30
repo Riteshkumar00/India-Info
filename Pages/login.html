@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="or">OR</div>
+        <button class="google-btn">Login with Google</button>
+        <button class="facebook-btn">Login with Facebook</button>
+
+        <p><a href="forgotpassword.html">Forgot Password?</a></p>
+        <p>Don't have an account? <a href="signup.html">Signup here</a></p>
+        <button onclick="window.location.href='index.html'">Go Back to Home</button>
+    </div>
+
+    <script>
+        document.querySelector(".google-btn").addEventListener("click", () => {
+            window.location.href = "/auth/google";
+        });
+        document.querySelector(".facebook-btn").addEventListener("click", () => {
+            window.location.href = "/auth/facebook";
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="message" style="margin-top:10px; text-align:center;"></div>
+
+        <div class="or">OR</div>
+        <button class="google-btn">Login with Google</button>
+        <button class="facebook-btn">Login with Facebook</button>
+
+        <p><a href="forgotpassword.html">Forgot Password?</a></p>
+        <p>Don't have an account? <a href="signup.html">Signup here</a></p>
+        <button onclick="window.location.href='index.html'">Go Back to Home</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const message = document.getElementById('message');
+                if (data.message) {
+                    message.textContent = data.message;
+                    message.style.color = 'green';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1000);
+                } else if (data.error) {
+                    message.textContent = data.error;
+                    message.style.color = 'red';
+                }
+            })
+            .catch(err => {
+                const message = document.getElementById('message');
+                message.textContent = 'An error occurred. Please try again.';
+                message.style.color = 'red';
+                console.error(err);
+            });
+        });
+
+        document.querySelector(".google-btn").addEventListener("click", () => {
+            window.location.href = "/auth/google";
+        });
+        document.querySelector(".facebook-btn").addEventListener("click", () => {
+            window.location.href = "/auth/facebook";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* Top header */
+.top-header {
+  background-color: #e9ecef;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.district-title {
+  font-weight: bold;
+}
+.indiainfo-logo {
+  max-height: 40px;
+}
+
+/* Navbar container */
+.custom-navbar {
+  background-color: #008080 !important; /* Teal */
+  width: 100%;
+}
+
+/* ALL links (normal + dropdown) - white, uppercase, bold */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle,
+.navbar-nav .dropdown-menu .dropdown-item {
+  color: white !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Navbar hover effects */
+
+/* 1. Home (and other nav-link non-dropdown) hover background yellow */
+.navbar-nav .nav-link:hover:not(.dropdown-toggle) {
+  background-color: #E49B0F; /* Yellow */
+  color: black !important;
+  border-radius: 4px;
+}
+
+/* 2. Dropdown item hover background yellow */
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+  background-color: #E49B0F;
+  color: black !important;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* 3. Dropdown menu styling */
+.navbar-nav .dropdown-menu {
+  background-color: #008080; /* Match navbar background */
+  border: none;
+  padding: 0;
+}
+
+/* 4. On hover, show dropdown menu (for desktop view) */
+@media (min-width: 992px) {
+  .navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Highlight parent link like "ABOUT DISTRICT" when hovering */
+  .navbar-nav .dropdown:hover > .nav-link {
+    background-color: #E49B0F;
+    color: black !important;
+    border-radius: 4px;
+  }
+}
+
+/* Optional: Add smooth dropdown transition (desktop only) */
+.navbar-nav .dropdown-menu {
+  transition: all 0.3s ease;
+}
+
+/* Optional: Slight padding for dropdown items */
+.navbar-nav .dropdown-item {
+  padding: 10px 20px;
+}
+
+
+
+
+
+
+
+/* Utility item boxes */
+.utility-box {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+}
+
+/* Individual background colors */
+.bg-blue {
+  background-color: #2196F3;
+}
+.bg-red {
+  background-color: #F44336;
+}
+.bg-green {
+  background-color: #4CAF50;
+}
+.bg-gray {
+  background-color: #9E9E9E;
+}
+.bg-orange {
+  background-color: #FF9800;
+}
+.bg-purple {
+  background-color: #9C27B0;
+}
+.bg-darkgray {
+  background-color: #607D8B;
+}
+
+
+
+/* Clickable glance boxes */
+.glance-box {
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+/* Optional hover effect */
+.glance-box:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+/* Same background color classes from before */
+.bg-blue { background-color: #2196F3; }
+.bg-red { background-color: #F44336; }
+.bg-green { background-color: #4CAF50; }
+.bg-gray { background-color: #9E9E9E; }
+.bg-orange { background-color: #FF9800; }
+.bg-purple { background-color: #9C27B0; }
+.bg-darkgray { background-color: #607D8B; }
+
+
+
+.box-content {
+  background-color: #008080;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+
+/* CSS for Utility box */
+
+.utility-box {
+  cursor: pointer;
+  /* optional hover style */
+  transition: background 0.3s ease;
+}
+.utility-box:hover {
+  opacity: 0.85;
+}
