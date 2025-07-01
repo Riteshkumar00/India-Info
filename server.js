@@ -65,8 +65,8 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "/auth/google/callback"
-  //callbackURLx: `${process.env.BASE_URL}/auth/google/callback`
+  //callbackURLx: "/auth/google/callback"
+  callbackURL: `${process.env.BASE_URL}/auth/google/callback`
 }, (accessToken, refreshToken, profile, done) => {
   const email = profile.emails[0].value;
   const photo = profile.photos[0].value;
@@ -242,8 +242,8 @@ app.post('/api/forgot-password', (req, res) => {
   (updateErr) => {
     if (updateErr) return res.status(500).json({ error: 'Error saving reset token' });
 
-    // const resetLink = `https://indiainfo.onrender.com/reset-password.html?token=${resetToken}`;
-    const resetLink = `http://localhost:3000/reset-password.html?token=${resetToken}`;
+    const resetLink = `https://indiainfo.onrender.com/reset-password.html?token=${resetToken}`;
+    //const resetLink = `http://localhost:3000/reset-password.html?token=${resetToken}`;
 
 
     const mailOptions = {
