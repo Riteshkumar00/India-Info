@@ -65,8 +65,8 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  // callbackURL: "/auth/google/callback"
-  callbackURL: `${process.env.BASE_URL}/auth/google/callback`
+  callbackURL: "/auth/google/callback"
+  //callbackURLx: `${process.env.BASE_URL}/auth/google/callback`
 }, (accessToken, refreshToken, profile, done) => {
   const email = profile.emails[0].value;
   const photo = profile.photos[0].value;
